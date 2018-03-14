@@ -1,0 +1,14 @@
+import com.postgres.restapi.Artist
+
+model {
+	List<Artist> artistList
+}
+
+json {
+
+	log.debug "Model is $binding.variables"
+
+	hal.links(self:artistList)
+	
+	artists tmpl.artist(artistList)
+}

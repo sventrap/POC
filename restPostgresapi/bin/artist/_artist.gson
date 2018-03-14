@@ -1,0 +1,18 @@
+import com.postgres.restapi.Artist
+
+model {
+	Artist artist
+}
+
+json {
+
+	System.out.println "Artist Model is $binding.variables"
+
+	hal.links(artist)
+	
+	id artist.id
+	firstName artist.firstName?.toUpperCase() 
+	lastName artist.lastName?.toUpperCase()
+	dateCreated artist.dateCreated.format('MM-dd-yyyy')
+	lastUpdated artist.lastUpdated.format('MM-dd-yyyy')
+}
